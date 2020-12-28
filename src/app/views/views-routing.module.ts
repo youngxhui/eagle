@@ -9,7 +9,8 @@ const routes: Routes = [
         path: '', component: DefaultComponent, children: [
             {path: '', redirectTo: 'index', pathMatch: 'full'},
             {path: 'index', component: IndexComponent},
-            // {path: 'course', loadChildren: () => import('./course/course.module').then(m => m.CourseModule)},
+            {path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)},
+            {path: 'course', loadChildren: () => import('./course/course.module').then(m => m.CourseModule)},
             // {path: 'roadmap', loadChildren: () => import('./roadmap/roadmap.module').then(m => m.RoadmapModule)},
             // {path: 'person', loadChildren: () => import('./person/person.module').then(m => m.PersonModule)},
         ]

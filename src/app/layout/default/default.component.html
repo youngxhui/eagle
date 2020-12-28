@@ -15,26 +15,18 @@
           <li nz-menu-item [routerLink]="['course/add']">添加课程</li>
         </ul>
       </li>
-      <li nz-menu-item>
-        <i nz-icon nzType="file"></i>
-        <span>File</span>
+      <li nz-submenu nzTitle="设置" nzIcon="team">
+        <ul>
+          <li nz-menu-item [routerLink]="['setting']">设置</li>
+        </ul>
       </li>
     </ul>
   </nz-sider>
   <nz-layout>
     <nz-header></nz-header>
     <nz-content>
-      <!--    <nz-breadcrumb>-->
-      <!--      <nz-breadcrumb-item>Home</nz-breadcrumb-item>-->
-      <!--      <nz-breadcrumb-item>List</nz-breadcrumb-item>-->
-      <!--      <nz-breadcrumb-item>App</nz-breadcrumb-item>-->
-      <!--    </nz-breadcrumb>-->
       <div class="inner-content">
-
-
         <router-outlet></router-outlet>
-
-
       </div>
     </nz-content>
     <nz-footer>大连理工大学软件学院 &copy; 2020 Power by Angular</nz-footer>

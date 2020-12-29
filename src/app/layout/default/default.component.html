@@ -4,7 +4,7 @@
     <ul nz-menu nzTheme="dark" nzMode="inline">
       <li nz-submenu nzTitle="用户" nzIcon="user">
         <ul>
-          <li nz-menu-item [routerLink]="['user']">查看用户</li>
+          <li nz-menu-item [routerLink]="['user/show']">查看用户</li>
           <li nz-menu-item [routerLink]="['user/add']">添加用户</li>
 <!--          <li nz-menu-item [routerLink]="['user']">查看用户</li>-->
         </ul>
@@ -29,7 +29,7 @@
         <router-outlet></router-outlet>
       </div>
     </nz-content>
-    <nz-footer>大连理工大学软件学院 &copy; 2020 Power by Angular</nz-footer>
+    <nz-footer> &copy; 2020 Power by Angular</nz-footer>
   </nz-layout>
 
 </nz-layout>

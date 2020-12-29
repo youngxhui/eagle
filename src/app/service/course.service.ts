@@ -24,7 +24,7 @@ export class CourseService {
     }
 
     getCourseByTip(tipId: number, page: number, size: number): Observable<Result<Page<Course>>> {
-        return this.httpClient.get <Result<Page<Course>>>(`/course/tip/${tipId}?page=${page}&size=${size}`);
+        return this.httpClient.get<Result<Page<Course>>>(`/course/tip/${tipId}?page=${page}&size=${size}`);
     }
 
 

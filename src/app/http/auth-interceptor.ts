@@ -15,7 +15,13 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        return next.handle(req).pipe(
+        const authToken = this.authService.getToken();
+        const authReq = req.clone({
+            headers: req.headers.set('Authorization', authToken)
+        });
+
+
+        return next.handle(authReq).pipe(
             catchError(error => {
                 // 登录错误
                 if (error.status === 401) {

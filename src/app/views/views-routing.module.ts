@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from '../layout/login/login.component';
 import { DefaultComponent } from '../layout/default/default.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from '../guard/auth.guard';
 
 const routes: Routes = [
     {
-        path: '', component: DefaultComponent, children: [
+        path: '', component: DefaultComponent, canActivate: [AuthGuard], children: [
             {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
             {path: 'dashboard', component: DashboardComponent},
             {path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)},

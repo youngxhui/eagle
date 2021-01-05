@@ -7,6 +7,7 @@ import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ShowComponent } from './show/show.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ShowComponent } from './show/show.component';
     imports: [
         CommonModule,
         UserRoutingModule,
-        SharedModule
+        SharedModule,
+        ReactiveFormsModule
     ]
 })
 export class UserModule {

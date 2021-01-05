@@ -1,1 +1,61 @@
-<p>add works!</p>
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">电子邮箱</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入您的邮箱帐号!">
+      <input nz-input formControlName="email" id="email"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>密码</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入您的密码!">
+      <input nz-input type="password" id="password" formControlName="password"
+             (ngModelChange)="updateConfirmValidator()"/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired
+                   nzTooltipTitle="请输入您的昵称">
+      <span>昵称</span>
+    </nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入法您的昵称">
+      <input nz-input id="nickname" formControlName="nickname"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="sex" nzRequired>性别</nz-form-label>
+    <nz-form-control
+      [nzSm]="24"
+      [nzXs]="24"
+      [nzValidateStatus]="validateForm.controls['sex']"
+      nzErrorTip="请填写性别"
+    >
+
+      <nz-select formControlName="sex" class="phone-select">
+        <nz-option nzLabel="男" nzValue="1"></nz-option>
+        <nz-option nzLabel="女" nzValue="0"></nz-option>
+      </nz-select>
+
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>电话</nz-form-label>
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      [nzValidateStatus]="validateForm.controls['phoneNumber']"
+      nzErrorTip="Please input your phone number!"
+    >
+
+      <input formControlName="phoneNumber" id="'phoneNumber'" nz-input/>
+
+    </nz-form-control>
+  </nz-form-item>
+
+
+  <nz-form-item nz-row class="register-area">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button nz-button nzType="primary">确认</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

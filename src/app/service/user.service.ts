@@ -4,6 +4,7 @@ import Result from '../entity/result';
 import {User} from '../entity/user';
 import {Observable} from 'rxjs';
 import RegisterUser from '../entity/registerUser';
+import Page from "../entity/page";
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,13 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  getUserList(page: number, size: number): Observable<Result<Array<User>>> {
-    return this.http.get<Result<Array<User>>>(`/user/list/enable?page=${page}&size=${size}`);
+  /**
+   * 获取所有的用户列表
+   * @param page 页数
+   * @param size 数量
+   */
+  getUserList(page: number, size: number): Observable<Result<Page<User>>> {
+    return this.http.get<Result<Page<User>>>(`/user/list/enable?page=${page}&size=${size}`);
   }
 
   /**
@@ -23,4 +29,14 @@ export class UserService {
   addUser(user: RegisterUser): Observable<Result<User>> {
     return this.http.post<Result<User>>('/user/add', user);
   }
+
+  /**
+   * 获取用户信息
+   */
+  getUserInfo(id: number): Observable<Result<User>> {
+    return this.http.get<Result<User>>(`/user/${id}`);
+  }
+
 }
+
+

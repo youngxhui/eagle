@@ -8,10 +8,11 @@ import { UpdateComponent } from './update/update.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ShowComponent } from './show/show.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
-    declarations: [ AddComponent, UpdateComponent, ShowComponent],
+    declarations: [ AddComponent, UpdateComponent, ShowComponent, ProfileComponent],
     imports: [
         CommonModule,
         UserRoutingModule,

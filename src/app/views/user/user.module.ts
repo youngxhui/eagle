@@ -7,7 +7,7 @@ import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ShowComponent } from './show/show.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ProfileComponent } from './profile/profile.component';
 
 
@@ -17,7 +17,8 @@ import { ProfileComponent } from './profile/profile.component';
         CommonModule,
         UserRoutingModule,
         SharedModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ]
 })
 export class UserModule {

@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import RegisterUser from '../../../entity/registerUser';
-import {UserService} from "../../../service/user.service";
+import {UserService} from 'src/app/service/user.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -47,7 +48,7 @@ export class AddComponent implements OnInit {
     return {};
   }
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(private fb: FormBuilder, private userService: UserService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {

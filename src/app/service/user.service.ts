@@ -4,7 +4,7 @@ import Result from '../entity/result';
 import {User} from '../entity/user';
 import {Observable} from 'rxjs';
 import RegisterUser from '../entity/registerUser';
-import Page from "../entity/page";
+import Page from '../entity/page';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +37,13 @@ export class UserService {
     return this.http.get<Result<User>>(`/user/${id}`);
   }
 
+  /**
+   * 更新用户
+   * @param user 用户
+   */
+  updateUserInfo(user: User): Observable<Result<string>> {
+    return this.http.put<Result<string>>('/', user);
+  }
 }
 
 

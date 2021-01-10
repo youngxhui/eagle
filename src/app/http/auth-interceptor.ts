@@ -19,8 +19,8 @@ export class AuthInterceptor implements HttpInterceptor {
     const authReq = req.clone({
       headers: req.headers.set('Authorization', authToken)
     });
-    console.log(req);
-    if (req.url.indexOf('login')) {
+
+    if (req.url.indexOf('login') > 0) {
       return next.handle(req);
     }
 

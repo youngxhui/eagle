@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from 'src/app/service/user.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {User} from 'src/app/entity/user';
 
 @Component({
@@ -31,9 +31,9 @@ export class UpdateComponent implements OnInit {
     user.telephone = this.validateForm.get('phoneNumber').value;
     user.sex = this.validateForm.get('sex').value;
     user.birth = this.validateForm.get('birth').value;
-
+    user.enable = this.validateForm.get('enable').value === '1';
     this.userService.updateUserInfo(user).subscribe((data) => {
-      console.log('console', data);
+      this.cancel();
     });
   }
 
@@ -56,7 +56,7 @@ export class UpdateComponent implements OnInit {
     return {};
   }
 
-  constructor(private fb: FormBuilder, private userService: UserService, private route: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private userService: UserService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -66,6 +66,7 @@ export class UpdateComponent implements OnInit {
       phoneNumber: [null, [Validators.required]],
       sex: [null, [Validators.required]],
       birth: ['2021-01-01', [Validators.required]],
+      enable: ['1', [Validators.required]]
     });
     this.route.queryParams.subscribe(params => {
       this.id = Number(this.route.snapshot.paramMap.get('id'));
@@ -81,5 +82,9 @@ export class UpdateComponent implements OnInit {
     });
 
 
+  }
+
+  cancel(): void {
+    this.router.navigateByUrl('/user/show');
   }
 }

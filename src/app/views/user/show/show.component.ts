@@ -25,4 +25,7 @@ export class ShowComponent implements OnInit {
   }
 
 
+  deleteUser(id: number): void {
+
+  }
 }

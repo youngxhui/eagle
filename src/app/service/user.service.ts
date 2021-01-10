@@ -44,6 +44,10 @@ export class UserService {
   updateUserInfo(user: User): Observable<Result<string>> {
     return this.http.put<Result<string>>('/user', user);
   }
+
+  deleteUser(id: number): Observable<Result<string>> {
+    return this.http.delete<Result<string>>(`/user/${id}`);
+  }
 }
 
 

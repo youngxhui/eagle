@@ -42,7 +42,7 @@ export class UserService {
    * @param user 用户
    */
   updateUserInfo(user: User): Observable<Result<string>> {
-    return this.http.put<Result<string>>('/', user);
+    return this.http.put<Result<string>>('/user', user);
   }
 }
 

@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import {Injectable} from '@angular/core';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
+import {NzMessageService} from 'ng-zorro-antd/message';
 
 /**
  * 请求拦截器，主要实现两个功能
@@ -27,7 +27,7 @@ export class BaseUrlInterceptor implements HttpInterceptor {
         }
       }, err => {
         if (err.status !== 200) {
-          this.messageService.error(err.error.message);
+          this.messageService.error('发生了错误');
         }
       })
     );

@@ -1,0 +1,21 @@
+<div nz-row>
+  <div nz-col nzFlex="2">
+    <nz-avatar [nzSize]="64" nzIcon="user" [nzSrc]="user.avatar"></nz-avatar>
+  </div>
+  <div nz-col nzFlex="3">
+    <div>帐号  {{user.account}}</div>
+    <div>名字 {{user.name}}</div>
+  </div>
+</div>
+
+<div nz-row>
+  <div nz-col nzSpan="8">性别 {{user.sex}}</div>
+  <div nz-col nzSpan="8">电话 {{user.telephone}}</div>
+  <div nz-col nzSpan="8">出生日期 {{user.birth}}</div>
+</div>
+
+
+<div>
+  <button nz-button [routerLink]="'/user/update/'+user.id">更新</button>
+  <button nz-button>删除</button>
+</div>

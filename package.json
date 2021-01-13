@@ -21,6 +21,8 @@
     "@angular/router": "~11.0.5",
     "js-base64": "^3.6.0",
     "ng-zorro-antd": "^11.0.1",
+    "monaco-editor": "^0.21.2",
+    "ngx-markdown": "^11.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

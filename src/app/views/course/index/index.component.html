@@ -1,6 +1,7 @@
 <nz-table #basicTable [nzData]="listOfCourse">
   <thead>
   <tr>
+    <th>编号</th>
     <th>名称</th>
     <th>难度等级</th>
     <th>分类</th>
@@ -12,6 +13,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let data of basicTable.data">
+    <td>{{ data.id }}</td>
     <td>{{ data.name }}</td>
     <td>{{ data.level.name }}</td>
     <td>{{ data.tip.name }}</td>
@@ -19,7 +21,7 @@
     <td>{{ data.period}}</td>
     <td>{{ data.institution}}</td>
     <td>
-      <a>详情</a>
+      <a [routerLink]="'/course/profile/'+data.id">详情</a>
     </td>
   </tr>
   </tbody>

@@ -1,0 +1,28 @@
+<div>
+  <h2>{{course.name}}</h2>
+  <nz-tag nzColor="lime">{{course.level.name}}</nz-tag>
+  <a nz-button nzType="link">授课讲师：{{course.teacher}}</a>
+  <div>线上授课 {{(course.period-course.period%60)/60}}小时 {{course.period%60}}分钟</div>
+</div>
+<app-rate value="{{course.rate}}"></app-rate>
+<h3>简介</h3>
+<p>
+  {{course.description}}
+</p>
+<h3>课程地址</h3>
+<i nz-icon nzType="link" nzTheme="outline"></i>
+<a nz-button nzType="link"
+   [href]=course.url>{{course.url}}</a>
+<h3>目录</h3>
+<!--<img *ngFor="let cata of cataList"-->
+<!--     [src]="this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:8800/'+cata)"-->
+<!--     style="max-width: 100%" width="auto" height="auto"-->
+<!--     alt="not found">-->
+<h3>授课平台/机构</h3>
+{{course.institution}}
+<img src="./assets/imooc.png" alt="">
+
+
+<div>
+  <button nz-button [routerLink]="'/course/update/'+course.id">更新</button>
+</div>

@@ -12,6 +12,7 @@ const routes: Routes = [
             {path: 'dashboard', component: DashboardComponent},
             {path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)},
             {path: 'course', loadChildren: () => import('./course/course.module').then(m => m.CourseModule)},
+            {path: 'note', loadChildren: () => import('./note/note.module').then(m => m.NoteModule)},
             {path: 'setting', loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule)},
             // {path: 'roadmap', loadChildren: () => import('./roadmap/roadmap.module').then(m => m.RoadmapModule)},
             // {path: 'person', loadChildren: () => import('./person/person.module').then(m => m.PersonModule)},

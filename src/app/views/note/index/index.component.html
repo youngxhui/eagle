@@ -1,1 +1,28 @@
-<p>index works!</p>
+<nz-table #basicTable [nzData]="listOfNote">
+  <thead>
+    <tr>
+      <th>编号</th>
+      <th>标题</th>
+      <th>作者</th>
+      <th>所属课程</th>
+      <th>状态</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.id }}</td>
+      <td>{{ data.title }}</td>
+      <td>{{ data.userId }}</td>
+      <td>{{ data.courseName }}</td>
+      <td>
+        <div *ngIf="data.enable == true"> 启用 </div>
+        <div *ngIf="data.enable == false"> 禁用 </div>
+      </td>
+
+      <td>
+        <a [routerLink]="'/note/profile/' + data.id">查看详情</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

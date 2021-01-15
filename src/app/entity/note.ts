@@ -3,5 +3,5 @@ export class Note {
   courseId: number;
   userId: number;
   title: string;
-    
+  enable: boolean;
 }

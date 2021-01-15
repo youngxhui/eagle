@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Result from 'src/app/entity/result';
+import { Note } from 'src/app/entity/note';
 import { NoteService } from 'src/app/service/note.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { NoteService } from 'src/app/service/note.service';
 })
 export class IndexComponent implements OnInit {
   page: number = 1;
+  listOfNote: Note[] = [];
 
   constructor(private noteService: NoteService) {}
 
@@ -17,12 +18,12 @@ export class IndexComponent implements OnInit {
   }
 
   /**
-   * 
+   *
    * 获取笔记
    */
   getNotes() {
-    this.noteService.getNote(this.page, 10).subscribe((result) => {
-      console.log(result);
+    this.noteService.getAllNote(this.page - 1, 10).subscribe((result) => {
+      this.listOfNote = result.data.content;
     });
   }
 }

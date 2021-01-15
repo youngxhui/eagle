@@ -1,1 +1,10 @@
-<p>profile works!</p>
+<p>{{ note.title }}</p>
+<div *ngIf="note.enable">
+    <button nz-button nzType="primary" (click)="changeEnable()">已启用</button>
+    <button nz-button nzType="primary" (click)="changeEnable()">更新</button>
+</div>
+<div *ngIf="!note.enable">
+    <button nz-button nzType="danger" (click)="changeEnable()">已禁用</button>
+    <button nz-button nzType="primary" (click)="changeEnable()">更新</button>
+</div>
+<markdown emoji [data]="note.content" style="height: 400px"></markdown>

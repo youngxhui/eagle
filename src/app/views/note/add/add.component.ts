@@ -65,7 +65,7 @@ export class AddComponent implements OnInit {
   /**
    * 获取md编辑器内容
    */
-  receive(event): void {
+  receive(event: string): void {
     this.mdText = event;
   }
 }

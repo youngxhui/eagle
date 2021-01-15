@@ -14,11 +14,21 @@ export class NoteService {
   /**
    * 获取所有的note
    */
-  getNote(page: number, size: number): Observable<Page<Note>> {
-    return this.http.get<Page<Note>>(`/note?page=${page}&size=${size}`);
+  getAllNote(page: number, size: number): Observable<Result<Page<Note>>> {
+    return this.http.get<Result<Page<Note>>>(`/note?page=${page}&size=${size}`);
   }
 
   saveNote(note: Note): Observable<Result<any>> {
-    return this.http.post<Result<any>>('/', {});
+    return this.http.post<Result<any>>('/note', note);
+  }
+
+  getNote(id: number): Observable<Result<Note>> {
+    return this.http.get<Result<Note>>(`/note/${id}`);
+  }
+  /**
+   * 更新状态
+   */
+  updateEnable(id: number, enable: boolean): Observable<Result<boolean>> {
+    return this.http.patch<Result<boolean>>(`/note/enable/${id}/${enable}`, {});
   }
 }

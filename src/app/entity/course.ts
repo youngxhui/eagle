@@ -3,33 +3,37 @@ import { SubTip } from './subTip';
 import { Tip } from './tip';
 
 export class Course {
+  
+  id: number;
 
-    id: number;
+  name = '';
 
-    name: string;
+  level: Level;
 
-    level: Level;
+  teacher: string;
 
-    teacher: string;
+  rate: number;
 
-    rate: number;
+  cover: string;
 
-    cover: string;
+  description: string;
 
-    description: string;
+  enable: boolean;
 
-    enable: boolean;
+  institution: string;
 
-    institution: string;
+  online: boolean;
 
-    online: boolean;
+  /**
+   * 授课时长
+   */
+  period: number;
 
-    period: number;
+  subTip: SubTip;
 
-    subTip: SubTip;
+  tip: Tip;
 
-    tip: Tip;
+  url: string;
 
-    url: string;
-
+  catalog: string;
 }

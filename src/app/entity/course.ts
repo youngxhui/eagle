@@ -1,9 +1,9 @@
 import Level from './level';
-import {SubTip} from './subTip';
-import {Tip} from './tip';
+import { SubTip } from './subTip';
+import { Tip } from './tip';
 
 export class Course {
-
+  
   id: number;
 
   name = '';
@@ -24,6 +24,9 @@ export class Course {
 
   online: boolean;
 
+  /**
+   * 授课时长
+   */
   period: number;
 
   subTip: SubTip;
@@ -32,5 +35,5 @@ export class Course {
 
   url: string;
 
-  catelog: string;
+  catalog: string;
 }

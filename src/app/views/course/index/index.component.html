@@ -1,28 +1,36 @@
-<nz-table #basicTable [nzData]="listOfCourse">
+<nz-table
+  #basicTable
+  [nzData]="listOfCourse"
+  [nzPageSize]="10"
+  [(nzPageIndex)]="pageIndex"
+  [nzTotal]="20"
+  (nzPageIndexChange)="changePage()"
+  [nzFrontPagination]="false"
+>
   <thead>
-  <tr>
-    <th>编号</th>
-    <th>名称</th>
-    <th>难度等级</th>
-    <th>分类</th>
-    <th>子分类</th>
-    <th>评分</th>
-    <th>机构</th>
-    <th>操作</th>
-  </tr>
+    <tr>
+      <th>编号</th>
+      <th>名称</th>
+      <th>难度等级</th>
+      <th>分类</th>
+      <th>子分类</th>
+      <th>评分</th>
+      <th>机构</th>
+      <th>操作</th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let data of basicTable.data">
-    <td>{{ data.id }}</td>
-    <td>{{ data.name }}</td>
-    <td>{{ data.level.name }}</td>
-    <td>{{ data.tip.name }}</td>
-    <td>{{ data.subTip.name }}</td>
-    <td>{{ data.period}}</td>
-    <td>{{ data.institution}}</td>
-    <td>
-      <a [routerLink]="'/course/profile/'+data.id">详情</a>
-    </td>
-  </tr>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.id }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.level.name }}</td>
+      <td>{{ data.tip.name }}</td>
+      <td>{{ data.subTip.name }}</td>
+      <td>{{ data.period }}</td>
+      <td>{{ data.institution }}</td>
+      <td>
+        <a [routerLink]="'/course/profile/' + data.id">详情</a>
+      </td>
+    </tr>
   </tbody>
 </nz-table>

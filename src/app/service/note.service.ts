@@ -31,4 +31,12 @@ export class NoteService {
   updateEnable(id: number, enable: boolean): Observable<Result<boolean>> {
     return this.http.patch<Result<boolean>>(`/note/enable/${id}/${enable}`, {});
   }
+
+  /**
+   * 更新笔记
+   * @param note note
+   */
+  updatNote(note: Note): Observable<Result<Note>> {
+    return this.http.post<Result<Note>>(`/note/update`, note);
+  }
 }

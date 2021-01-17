@@ -1,0 +1,26 @@
+<nz-table #basicTable [nzData]="listOfComment">
+  <thead>
+    <tr>
+      <th>编号</th>
+      <th>用户名</th>
+      <th>用户帐号</th>
+      <th>内容</th>
+      <th>评分</th>
+      <th>性价比</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.id }}</td>
+      <td>{{ data.username }}</td>
+      <td>{{ data.account }}</td>
+      <td>{{ data.content }}</td>
+      <td>{{ data.score }}</td>
+      <td>{{ data.costPerformance }}</td>
+      <td>
+        <a [routerLink]="'/comment/profile/' + data.id">详情</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

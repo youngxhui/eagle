@@ -18,6 +18,12 @@ export class CommentService {
     page: number,
     size: number
   ): Observable<Result<Page<Comment>>> {
-    return this.http.get<Result<Page<Comment>>>(`/comment?page=${page}&size=${size}`);
+    return this.http.get<Result<Page<Comment>>>(
+      `/comment?page=${page}&size=${size}`
+    );
+  }
+
+  getCommentById(id: number): Observable<Result<Comment>> {
+    return this.http.get<Result<Comment>>(`/comment/${id}`);
   }
 }

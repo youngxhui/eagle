@@ -1,24 +1,34 @@
-<nz-descriptions nzTitle="Responsive Descriptions" nzBordered [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }">
-    <nz-descriptions-item nzTitle="Product">
-      Cloud Database
-    </nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Billing">Prepaid</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="time">18:00:00</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Amount">$80.00</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Discount">$20.00</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Official">$60.00</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Config Info">
-      Data disk type: MongoDB
-      <br />
-      Database version: 3.4
-      <br />
-      Package: dds.mongo.mid
-      <br />
-      Storage space: 10 GB
-      <br />
-      Replication_factor:3
-      <br />
-      Region: East China 1
-      <br />
-    </nz-descriptions-item>
-  </nz-descriptions>
+<nz-descriptions
+  nzTitle="评论详情"
+  nzBordered
+  [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }"
+>
+  <nz-descriptions-item nzTitle="编号"> {{ comment.id }} </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="评论人">{{
+    user.account
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="评论课程">{{
+    course.name
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="评分">{{
+    comment.score
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="性价比评分">{{
+    comment.costPerformance
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="是否推荐">{{
+    comment.recommend
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="状态">{{
+    comment.dislike
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="创建时间">{{
+    comment.createTime
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="更新时间">{{
+    comment.updateTime
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="内容">
+    <p>{{ comment.content }}</p>
+  </nz-descriptions-item>
+</nz-descriptions>

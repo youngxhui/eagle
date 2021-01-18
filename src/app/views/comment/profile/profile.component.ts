@@ -42,4 +42,10 @@ export class ProfileComponent implements OnInit {
         });
     });
   }
+
+  delete(id: number): void {
+    this.commentService.deleteCommentById(id).subscribe((result) => {
+      this.comment.enable = !this.comment.enable;
+    });
+  }
 }

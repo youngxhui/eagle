@@ -19,9 +19,11 @@
   <nz-descriptions-item nzTitle="是否推荐">{{
     comment.recommend
   }}</nz-descriptions-item>
-  <nz-descriptions-item nzTitle="状态">{{
-    comment.dislike
-  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="状态">
+    <button nz-button type="button" (click)="delete(comment.id)">
+      {{ comment.enable ? "启用" : "禁用" }}
+    </button>
+  </nz-descriptions-item>
   <nz-descriptions-item nzTitle="创建时间">{{
     comment.createTime
   }}</nz-descriptions-item>

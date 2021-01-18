@@ -26,4 +26,8 @@ export class CommentService {
   getCommentById(id: number): Observable<Result<Comment>> {
     return this.http.get<Result<Comment>>(`/comment/${id}`);
   }
+
+  deleteCommentById(id: number): Observable<Result<any>> {
+    return this.http.delete<Result<any>>(`/comment/${id}`);
+  }
 }

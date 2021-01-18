@@ -1,0 +1,36 @@
+<nz-descriptions
+  nzTitle="评论详情"
+  nzBordered
+  [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }"
+>
+  <nz-descriptions-item nzTitle="编号"> {{ comment.id }} </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="评论人">{{
+    user.account
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="评论课程">{{
+    course.name
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="评分">{{
+    comment.score
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="性价比评分">{{
+    comment.costPerformance
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="是否推荐">{{
+    comment.recommend
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="状态">
+    <button nz-button type="button" (click)="delete(comment.id)">
+      {{ comment.enable ? "启用" : "禁用" }}
+    </button>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="创建时间">{{
+    comment.createTime
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="更新时间">{{
+    comment.updateTime
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="内容">
+    <p>{{ comment.content }}</p>
+  </nz-descriptions-item>
+</nz-descriptions>

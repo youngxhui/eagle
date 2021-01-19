@@ -1,1 +1,35 @@
-<p>系统设置项目</p>
+<p>Banner设置</p>
+<nz-carousel [nzEffect]="effect">
+  <div nz-carousel-content *ngFor="let index of array">
+    <h3>{{ index }}</h3>
+  </div>
+</nz-carousel>
+
+<nz-divider></nz-divider>
+<button nz-button nz-icon="add">添加</button>
+<nz-divider></nz-divider>
+
+<nz-table #basicTable [nzData]="dataOfBarnner">
+  <thead>
+    <tr>
+      <th>编码</th>
+      <th>描述</th>
+      <th>状态</th>
+      <th>创建时间</th>
+      <th>更新时间</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.id }}</td>
+      <td>{{ data.description }}</td>
+      <td>{{ data.enable ? "已启用" : "已经关闭" }}</td>
+      <td>{{ data.createTime }}</td>
+      <td>{{ data.updateTime }}</td>
+      <td>
+        <a>详情</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

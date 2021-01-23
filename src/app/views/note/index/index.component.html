@@ -1,4 +1,11 @@
-<nz-table #basicTable [nzData]="listOfNote">
+<nz-table
+  #basicTable
+  [nzData]="listOfNote"
+  [(nzPageIndex)]="page"
+  [nzPageSize]="10"
+  [nzTotal]="totalElements"
+  (nzPageIndexChange)="changePage()"
+>
   <thead>
     <tr>
       <th>编号</th>
@@ -16,8 +23,8 @@
       <td>{{ data.userId }}</td>
       <td>{{ data.courseName }}</td>
       <td>
-        <div *ngIf="data.enable == true"> 启用 </div>
-        <div *ngIf="data.enable == false"> 禁用 </div>
+        <div *ngIf="data.enable == true">启用</div>
+        <div *ngIf="data.enable == false">禁用</div>
       </td>
 
       <td>

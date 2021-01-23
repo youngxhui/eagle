@@ -10,7 +10,8 @@ import { NoteService } from 'src/app/service/note.service';
 export class IndexComponent implements OnInit {
   page: number = 1;
   listOfNote: Note[] = [];
-
+  totalElements = 0;
+ 
   constructor(private noteService: NoteService) {}
 
   ngOnInit(): void {
@@ -25,5 +26,9 @@ export class IndexComponent implements OnInit {
     this.noteService.getAllNote(this.page - 1, 10).subscribe((result) => {
       this.listOfNote = result.data.content;
     });
+  }
+
+  changePage() {
+    this.getNotes()
   }
 }

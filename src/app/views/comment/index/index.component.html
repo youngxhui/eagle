@@ -1,4 +1,11 @@
-<nz-table #basicTable [nzData]="listOfComment">
+<nz-table
+  #basicTable
+  [nzData]="listOfComment"
+  [(nzPageIndex)]="pageIndex"
+  [nzPageSize]="10"
+  [nzTotal]="totalElements"
+  (nzPageIndexChange)="changePage()"
+>
   <thead>
     <tr>
       <th>编号</th>

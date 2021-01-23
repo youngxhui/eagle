@@ -9,6 +9,7 @@ import { CommentService } from 'src/app/service/comment.service';
 export class IndexComponent implements OnInit {
   listOfComment = [];
 
+  totalElements = 0;
   pageIndex = 1;
   constructor(private commentService: CommentService) {}
 
@@ -16,11 +17,19 @@ export class IndexComponent implements OnInit {
     this.getAllComment();
   }
 
+  /**
+   * 获取所有的评论
+   */
   getAllComment() {
     this.commentService
       .getAllComments(this.pageIndex - 1, 10)
       .subscribe((result) => {
         this.listOfComment = result.data.content;
+        this.totalElements = result.data.totalElements;
       });
+  }
+
+  changePage() {
+    this.getAllComment();
   }
 }

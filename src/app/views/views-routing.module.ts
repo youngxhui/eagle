@@ -4,6 +4,7 @@ import { LoginComponent } from '../layout/login/login.component';
 import { DefaultComponent } from '../layout/default/default.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from '../guard/auth.guard';
+import { Page404Component } from './page404/page404.component';
 
 const routes: Routes = [
   {
@@ -47,8 +48,8 @@ const routes: Routes = [
     component: LoginComponent,
   },
   // {path: 'register', component: RegisterComponent},
-  // {path: '403', component: Page403Component},
-  // {path: '**', component: Page404Component}
+  { path: '403', component: Page404Component },
+  { path: '**', component: Page404Component },
 ];
 
 @NgModule({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MarkdownService } from 'ngx-markdown';
+import { Course } from 'src/app/entity/course';
 import { Note } from 'src/app/entity/note';
 import { AuthService } from 'src/app/service/auth.service';
+import { CourseService } from 'src/app/service/course.service';
 import { NoteService } from 'src/app/service/note.service';
 
 @Component({
@@ -16,13 +16,24 @@ export class AddComponent implements OnInit {
   mdText = '';
   courseId = 0;
   value?: string;
+  courses: Course[] = [];
+
 
   constructor(private route: ActivatedRoute, private noteItemService: NoteService, private authService: AuthService,
               private router: Router) {
   }
 
+
+
   ngOnInit(): void {
-    this.courseId = Number(this.route.snapshot.paramMap.get('id'));
+    this.getCourse();
+  }
+
+  getCourse() {
+    this.courseService.getAllCourse(0, 100).subscribe((result) => {
+      this.courses = result.data.content;
+      console.log(this.courses);
+    });
   }
 
   /**
@@ -38,12 +49,11 @@ export class AddComponent implements OnInit {
     note.courseId = this.courseId;
     note.userId = this.authService.getUser().id;
     note.title = this.value;
-    console.log('note before submit', note);
-    this.noteItemService.saveNote(note).subscribe(
-      (data) => {
-        this.isSubmitted += 1;
-        console.log('after sub', data);
-      });
+
+    this.noteItemService.saveNote(note).subscribe((data) => {
+      this.isSubmitted += 1;
+      console.log('after sub', data);
+    });
     this.isVisible = false;
   }
 
@@ -52,13 +62,6 @@ export class AddComponent implements OnInit {
     this.isVisible = false;
   }
 
-  /**
-   * 页头返回
-   */
-  onBack(): void {
-    // const url: string = '/course/'.concat(String(this.courseId));
-    this.router.navigateByUrl('/course/profile/' + this.courseId);
-  }
 
   /**
    * 获取md编辑器内容

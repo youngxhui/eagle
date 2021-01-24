@@ -17,12 +17,9 @@ export class AddComponent implements OnInit {
   courseId = 0;
   value?: string;
 
-  constructor(
-    private route: ActivatedRoute,
-    private noteItemService: NoteService,
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private route: ActivatedRoute, private noteItemService: NoteService, private authService: AuthService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.courseId = Number(this.route.snapshot.paramMap.get('id'));
@@ -42,10 +39,11 @@ export class AddComponent implements OnInit {
     note.userId = this.authService.getUser().id;
     note.title = this.value;
     console.log('note before submit', note);
-    this.noteItemService.saveNote(note).subscribe((data) => {
-      this.isSubmitted += 1;
-      console.log('after sub', data);
-    });
+    this.noteItemService.saveNote(note).subscribe(
+      (data) => {
+        this.isSubmitted += 1;
+        console.log('after sub', data);
+      });
     this.isVisible = false;
   }
 
@@ -65,7 +63,7 @@ export class AddComponent implements OnInit {
   /**
    * 获取md编辑器内容
    */
-  receive(event: string): void {
+  receive(event): void {
     this.mdText = event;
   }
 }

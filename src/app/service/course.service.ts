@@ -7,6 +7,7 @@ import { SubTip } from '../entity/subTip';
 import { Course } from '../entity/course';
 import Page from '../entity/page';
 import { TipAndSub } from 'src/app/entity/tipAndSub';
+import {AddCourse} from '../entity/AddCourse';
 
 /**
  * 课程服务
@@ -54,7 +55,7 @@ export class CourseService {
    * 保存一个课程
    * @param course 课程
    */
-  saveOne(course: Course): Observable<Result<any>> {
+  saveOne(course: AddCourse): Observable<Result<any>> {
     return this.http.post<Result<any>>('/course', course);
   }
 

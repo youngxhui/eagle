@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-editor',
@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./editor.component.less']
 })
 export class EditorComponent implements OnInit {
-
-  @Input()
+  @Output()
+  soonOutput: EventEmitter<string> = new EventEmitter();
   code = '# Hi' +
     '\n' +
     '## Mark' +
@@ -28,4 +28,7 @@ export class EditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  changeCode(): void {
+    this.soonOutput.emit(this.code);
+  }
 }

@@ -1,4 +1,4 @@
-import { NgModule, SecurityContext } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NoteRoutingModule } from './note-routing.module';

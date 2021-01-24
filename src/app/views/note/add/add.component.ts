@@ -18,12 +18,11 @@ export class AddComponent implements OnInit {
   value?: string;
   courses: Course[] = [];
 
-
-  constructor(private route: ActivatedRoute, private noteItemService: NoteService, private authService: AuthService,
-              private router: Router) {
-  }
-
-
+  constructor(
+    private noteItemService: NoteService,
+    private authService: AuthService,
+    private courseService: CourseService
+  ) {}
 
   ngOnInit(): void {
     this.getCourse();
@@ -61,7 +60,6 @@ export class AddComponent implements OnInit {
     console.log('Button cancel clicked!');
     this.isVisible = false;
   }
-
 
   /**
    * 获取md编辑器内容

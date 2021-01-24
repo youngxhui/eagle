@@ -11,9 +11,19 @@ import Result from '../entity/result';
 export class BannerService {
   constructor(private http: HttpClient) {}
 
+  /**
+   * 获取所有的banner
+   */
   getAllBanner(page: number, size: number): Observable<Result<Page<Banner>>> {
     return this.http.get<Result<Page<Banner>>>(
       `/banner/list?page=${page}&size=${size}`
     );
+  }
+
+  /**
+   * 添加 banner
+   */
+  addBanner(banner: Banner): Observable<Result<Banner>> {
+    return this.http.post<Result<Banner>>(`/banner`, banner);
   }
 }

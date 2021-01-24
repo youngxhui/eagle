@@ -1,9 +1,9 @@
 import Level from './level';
-import { SubTip } from './subTip';
-import { Tip } from './tip';
+import {SubTip} from './subTip';
+import {Tip} from './tip';
 
 export class Course {
-  
+
   id: number;
 
   name = '';

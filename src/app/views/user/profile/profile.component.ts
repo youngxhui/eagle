@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
 
   private id: number;
   user: User = new User();
+  avatar: string;
 
   constructor(private route: ActivatedRoute, private userService: UserService) {
   }
@@ -23,6 +24,7 @@ export class ProfileComponent implements OnInit {
       this.userService.getUserInfo(this.id).subscribe((result) => {
         console.log('result =>', result);
         this.user = result.data;
+        this.avatar = this.user.avatar.split('】【')[0];
       });
     });
   }

@@ -18,11 +18,12 @@ export class AddComponent implements OnInit {
   value?: string;
   courses: Course[] = [];
 
-  constructor(
-    private noteItemService: NoteService,
-    private authService: AuthService,
-    private courseService: CourseService
-  ) {}
+
+  constructor(private route: ActivatedRoute, private noteItemService: NoteService, private authService: AuthService,
+              private router: Router) {
+  }
+
+
 
   ngOnInit(): void {
     this.getCourse();
@@ -48,6 +49,7 @@ export class AddComponent implements OnInit {
     note.courseId = this.courseId;
     note.userId = this.authService.getUser().id;
     note.title = this.value;
+
     this.noteItemService.saveNote(note).subscribe((data) => {
       this.isSubmitted += 1;
       console.log('after sub', data);
@@ -64,7 +66,7 @@ export class AddComponent implements OnInit {
   /**
    * 获取md编辑器内容
    */
-  receive(event: string): void {
+  receive(event): void {
     this.mdText = event;
   }
 }

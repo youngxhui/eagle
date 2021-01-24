@@ -24,7 +24,11 @@
       <td>{{ data.sex }}</td>
       <td>{{ data.birth }}</td>
       <td>{{ data.telephone }}</td>
-      <td>{{ data.roles }}</td>
+      <td>
+        <span *ngFor="let role of data.roles">
+          {{ role.name }}
+        </span>
+      </td>
       <td>
         <a [routerLink]="'/user/profile/' + data.id">详细信息</a>
       </td>

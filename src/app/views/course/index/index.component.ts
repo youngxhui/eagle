@@ -33,7 +33,6 @@ export class IndexComponent implements OnInit {
       .subscribe((result) => {
         this.listOfCourse = result.data.content;
         this.courseCount = result.data.totalElements;
-        console.log('couse Count', this.courseCount);
       });
   }
 
